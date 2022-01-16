@@ -1,0 +1,23 @@
+.readinglist{
+    background-color: #d0d8c5;
+    height: 60vh;
+    margin-top: -2.5vh;
+}
+.readingBooks{
+    margin-top: 4vh;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+.readBookCard{
+    width: 45%;
+    height: 128vh;
+    margin: 1%;
+    border: solid;
+}
+.deleteReading,.pushToCompleted{
+    font-size: 22px;
+    background-color: transparent;
+    border: none;
+}

@@ -1,0 +1,26 @@
+.allBooks{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    margin-top: -45vh;
+}
+.bookCard{
+    width: 45%;
+    height: 128vh;
+    margin: 1%;
+    border: solid;
+}
+.seeMoreOrLess,.pushToReadings{
+    font-size: 22px;
+    background-color: transparent;
+    border: none;
+}
+/* .description{
+    display: -webkit-box; 
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+} */
+/* .inactive{}
+.active{} */

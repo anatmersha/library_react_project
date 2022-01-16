@@ -1,0 +1,39 @@
+.homePage{
+    display: flex; 
+    background-color: #d0d8c5; 
+    height: 100vh;
+}
+.loginForms{
+    width: 30%;
+    background-color: cornsilk;
+}
+.frontLogo{
+    width: 70%; 
+    height: 75vh; 
+    margin-top: 80px;
+}
+.mainHeader{
+    font-family: monospace; 
+    letter-spacing: 20px; 
+    font-size: 50px;
+}
+.bookLogo{
+    width: 28vw;
+    margin-top: 2vh;
+}
+
+
+@media screen and (max-width: 768px){
+.bookLogo {
+    width: 33vw;
+    margin-top: 10vh;
+}
+}
+@media screen and (max-width: 425px){
+    .loginForms {
+        width: 33%;
+    }
+    .frontLogo{
+        width: 67%;
+    }
+}

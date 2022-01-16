@@ -1,49 +1,22 @@
-import { useEffect, useState } from "react"
-import axios from "axios";
-import Styles from "./Spinner.module.css";
 import Note from "./Note";
+import StarRating from "./StarRating";
 
-const Details = ({auth,bookID}) => {
-    const [book, setBook] = useState([]);
-    const [isLoading, setIsLoading] = useState(false);
-    const [err, setErr] = useState(false);
-
-    useEffect(getData, [bookID]);
-    
-    function getData() {
-        setIsLoading(true)
-          axios
-          .get(`https://www.googleapis.com/books/v1/volumes?q=${bookID}`)
-          .then((response)=> {
-            //   console.log(response.data.items);
-              setBook(response.data.items)
-              setIsLoading(false)
-          })
-          .catch((error)=> {
-              console.error(error.response);
-              setErr(true)
-              setIsLoading(false)
-          });  
-    }
-
-
+const Details = ({auth,current}) => {
+console.log(current);
+const image = current.volumeInfo.imageLinks;
+const images= [];
+for (const property in image) images.push(image[property])
     return(
         <>
         <h1>Details</h1>
-        {isLoading ? <div style={{width:"100px", height:"100px", marginLeft: "880px", marginBottom: "20px"}} className={Styles.spinner}></div> : ""} 
-
-            {book.map(item=> {
-                return (
-                <div key={item.id}>
-                    <img src={item.volumeInfo.imageLinks} alt={item.volumeInfo.title}/><br/> 
-                    <p>{item.volumeInfo.title}</p>
-                    <p><i>Wrriten by {item.volumeInfo.authors} published by {item.volumeInfo.publisher}</i></p>
-                    <p>description: {item.volumeInfo.description}</p>     
-                </div>                          
-            )})}   
-            <Note bookID={bookID} auth={auth}/>
-
-        {err ? <p style={{color: "red"}}>error</p> : ""}
+        <div>
+        <img style={{height: "400px", width: "300px"}} title="Image wasn't found" src={images[1] === undefined ? "https://media3.giphy.com/media/3zhxq2ttgN6rEw8SDx/giphy.gif?cid=ecf05e47f8u2yjibc628qrn6gy6pufm8g9xktf1lyfv9ahwd&rid=giphy.gif&ct=g" : images[1]} alt={`Sorry img wasn't found`}/>  
+            <p>{current.volumeInfo.title}</p>
+            <p><i>Wrriten by <b>{current.volumeInfo.authors}</b></i></p>
+            <p>{current.volumeInfo.description}</p>             
+        </div>
+        <StarRating bookID={current.id} auth={auth}/>
+        <Note bookID={current.id} auth={auth}/>
         </>
     )
 }

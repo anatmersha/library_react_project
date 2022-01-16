@@ -1,12 +1,12 @@
 import { useEffect, useState } from "react"
 import axios from "axios";
-import Search from "./Search";
-import Styles from "./Spinner.module.css";
+import Search from "../Components/Search";
+import Styles from "../Components/Spinner.module.css";
 import { Link } from "react-router-dom";
 import moment from 'moment';
 import "./BooksList.css";
 
-const BooksList = ({auth,setBookID}) => {
+const BooksList = ({auth,setCurrent}) => {
     const [books, setBooks] = useState(null);
     const [isLoading, setIsLoading] = useState(false);
     const [err, setErr] = useState(false);
@@ -58,7 +58,7 @@ const BooksList = ({auth,setBookID}) => {
                 <div key={i} className="bookCard">
 
                 <Link to="/Details" onClick={()=> { 
-                    setBookID(id);
+                    setCurrent(book);
                 }}><img style={{height: "400px", width: "300px"}} title="Image wasn't found" src={images[1] === undefined ? 
                     "https://media3.giphy.com/media/3zhxq2ttgN6rEw8SDx/giphy.gif?cid=ecf05e47f8u2yjibc628qrn6gy6pufm8g9xktf1lyfv9ahwd&rid=giphy.gif&ct=g" 
                     : images[1]} alt={`Sorry img wasn't found`}/></Link>
@@ -73,9 +73,7 @@ const BooksList = ({auth,setBookID}) => {
                     }}> {showFlag === false ? <i title="see more" class="fa fa-plus"></i> 
                                             : <i title="see less" class="fa fa-minus"></i>}
                 </button>     
-                
-
-
+        
 
                 <button className="pushToReadings" onClick={()=> {
                     const temp = userData;

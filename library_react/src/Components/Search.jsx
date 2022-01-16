@@ -1,5 +1,5 @@
 import "./Search.css";
-// zIndex: "-9999",marginTop: "-62px", 
+
 const Search = ({setSearched,getData}) => {
     return(
             <div className="searchBar" style={{backgroundColor: "#d0d8c5", height: "60vh", marginTop: "-10px"}}>

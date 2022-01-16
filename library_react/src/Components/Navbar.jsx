@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { Link } from "react-router-dom";
 import "./Navbar.css";
 import AvatarMaker from "../AvatarMaker.png";
@@ -6,7 +6,7 @@ import AvatarMaker from "../AvatarMaker.png";
 const Navbar = ({auth,setAuth,setPopUp,popUp}) => {
 const [logOut, setLogOut] = useState(false);
 const userData = JSON.parse(localStorage.getItem(auth));
-// const userName = userData[5];
+const userName = userData[5];
 
     return(
         <header style={{width: "100vw", zIndex: "9999"}}>
@@ -61,13 +61,13 @@ const userData = JSON.parse(localStorage.getItem(auth));
         <i class="fa fa-user-circle"></i>
 
         <button className="logoutBtn" onClick={()=>{
-            setPopUp(true)
+            setLogOut(true)
         }}>Log Out</button>
         </li>
-        {/* <li>
+        <li>
         <span className="userChip" style={{float:"right", backgroundColor: "#f1f1f1", borderRadius: "25px", height: "50px", lineHeight: "50px", marginTop: "-10px"}}>
         <img style={{float: "left", width: "50px", height: "50px", borderRadius: "50%"}} src={AvatarMaker} alt="Person" width="96" height="96"/>{userName}</span>
-        </li> */}
+        </li>
         </div>
         <hr></hr>     
         </header>

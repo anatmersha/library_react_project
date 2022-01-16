@@ -5,7 +5,6 @@ import "./ReadingList.css";
     const ReadingList = ({auth}) => {
         const [finishedDate, setFinishedDate] = useState(moment().format('MM/DD/YYYY, hh:mm a'));
         const userData = JSON.parse(localStorage.getItem(auth));
-        // const readingBooks = userData[0].readingsList;
         const [readingBooks, setReadingBooks] = useState(userData[0].readingsList)
         
         return(

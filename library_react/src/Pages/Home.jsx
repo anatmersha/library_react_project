@@ -1,5 +1,5 @@
-import Login from "./Login";
-import Register from "./Register";
+import Login from "../Components/Login";
+import Register from "../Components/Register";
 import "./Home.css";
 
 const Home = ({setAuth}) => {

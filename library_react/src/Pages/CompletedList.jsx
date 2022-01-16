@@ -1,24 +1,21 @@
 import { useState } from "react";
-import StarRating from "./StarRating";
+import StarRating from "../Components/StarRating";
 import "./CompletedList.css";
 
     const CompletedList = ({auth}) => {
         const userData = JSON.parse(localStorage.getItem(auth));
         const [completedBooks, setCompletedBooks] = useState(userData[1].completedList)
-        // const completedBooks = userData[1].completedList;
         const readingCount = userData[3].readingTime;
         const noteList = userData[2].notesList;
-        // const rate = userData[4].ratingList;
-
+        console.log(noteList);
         return (
             <div className="completedList">
         <h1>CompletedList</h1>
             <div className="completedBooks">
         {completedBooks.map(item=> {
-        // const readIndex = userData[3].readingTime.findIndex((book) => book.id === item.id);
-        const noteIndex = userData[2].notesList.findIndex((book) => book.bookID === item.id);
-        // const rateIndex = userData[4].ratingList.findIndex((book) => book.bookID === item.id);   
-        console.log(userData[3].readingTime);
+        const readIndex = userData[3].readingTime.findIndex((book) => book.id === item.id);
+        const noteIndex = noteList.findIndex((book) => book.bookID === item.id);
+
         const image = item.volumeInfo.imageLinks; 
         const images= [];
         for (const property in image) images.push(image[property])
@@ -30,10 +27,10 @@ import "./CompletedList.css";
                     <p><i>Wrriten by <b>{item.volumeInfo.authors}</b></i></p>
                     <p style={{fontSize: "20px"}}>{item.volumeInfo.description}</p>     
                     
-                    {/* <p style={{fontSize: "12px"}}><i>Start: {readingCount[readIndex].startDate}, Finish: {readingCount[readIndex].finishedDate}</i></p> */}
+                    <p style={{fontSize: "12px"}}><i>Start: {readingCount[readIndex].startDate}, Finish: {readingCount[readIndex].finishedDate}</i></p>
 
                     {noteList[noteIndex] ?
-                    <div style={{backgroundColor: "beige", width: "55vw", marginLeft: "278px", marginBottom: "10px"}}>
+                    <div style={{backgroundColor: "beige"}}>
                     <p>{noteList[noteIndex].note}</p>
                     <p style={{fontSize: "8px", textAlign: "left"}}><br/><i>BookTown</i><br/></p>
                     <p style={{fontSize: "8px", textAlign: "left"}}><br/><i>Last update: {noteList[noteIndex].date}</i><br/></p>
@@ -44,12 +41,15 @@ import "./CompletedList.css";
 
                         const currentBook = temp[1].completedList;
                         const currentTime = temp[3].readingTime;
+                        const currentRate = temp[4].ratingList;
 
                         const bookIndex = currentBook.findIndex((book) => book.id === item.id);
                         const timeIndex = currentTime.findIndex((book) => book.id === item.id);
+                        const rateIndex = currentRate.findIndex((book) => book.id === item.id);
                         
                         currentBook.splice(bookIndex, 1);
                         currentTime.splice(timeIndex, 1);
+                        currentRate.splice(rateIndex, 1);
 
                         const updated = currentBook.filter((book)=> book.id !== item.id)
                         setCompletedBooks(updated);
@@ -57,7 +57,8 @@ import "./CompletedList.css";
                         localStorage.setItem(auth, JSON.stringify(temp));                         
                     }}><i title="Remove this book" class="fa fa-trash"></i></button>
 
-                    {/* <StarRating bookID={item.id} auth={auth}/> */}
+                    <StarRating bookID={item.id} auth={auth}/>
+
                 </div>                          
         )})}  
             </div>

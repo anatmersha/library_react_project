@@ -17,7 +17,7 @@ a{
     text-decoration: none;
     color: black;
 }
-li{
+.mainNavbar li{
     list-style-type: none;
     padding: 7px;
     margin-left: 120px;
@@ -33,7 +33,6 @@ hr{
     position: fixed;
     width: 55vw;
     height: 55vh;
-    /* z-index: 99; */
     top: 200px;
     left: 432px;
     background: rgb(252, 219, 224);

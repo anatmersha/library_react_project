@@ -2,17 +2,13 @@
     margin-top: 12vh; 
 }
 .loginInput {
-    /* width: 370px; */
     width: 20vw;
-    /* height: 44px; */
     height: 5vh;
     margin-bottom: 5px;
     font-size: 17px;
 }
 .loginButton {
-    /* width: 378px; */
     width: 20.5vw;
-    /* height: 44px; */
     height: 5vh;
     font-size: 20px;
     background-color: rgb(229, 229, 192);

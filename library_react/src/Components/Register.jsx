@@ -11,6 +11,7 @@ import "./Register.css";
     const [confirmedPass, setConfirmedPass] = useState("");
     const [isLoading, setIsLoading] = useState(false);
     const [err, setErr] = useState(false);
+    const [errMsg, setErrMsg] = useState("");
     const [field, setField] = useState(false);
     const [completed, setCompleted] = useState(false);
 
@@ -30,12 +31,14 @@ import "./Register.css";
             const userID = response.data.email;
             localStorage.setItem(userID, JSON.stringify([{readingsList: []}, {completedList: []}, {notesList: []}, {readingTime: []}, {ratingList: []}, userName]))
             console.log(userName);
-            setIsLoading(false)
+            setIsLoading(false);
+            setCompleted(true);        
         })
         .catch((error)=> {
-            console.log(error.response);
+            console.log(error.response.data.error.message);
             setIsLoading(false)
             setErr(true);
+            setErrMsg(error.response.data.error.message)
         });
     }
     
@@ -49,9 +52,10 @@ import "./Register.css";
                 if(userName !== "" &&
                 email !== "" &&
                 password !== "" &&
-                confirmedPass !== "" && password === confirmedPass) {
-                        setUser();
-                        setCompleted(true);
+                confirmedPass !== "" && 
+                password === confirmedPass 
+                && errMsg === "") {
+                        setUser();    
                 }else{
                     setField(true);
                 }
@@ -70,7 +74,7 @@ import "./Register.css";
 
             {isLoading ? <div style={{width: "50px", height: "50px", marginLeft: "220px", marginTop: "15px"}} className={Styles.spinner}></div> : ""} 
             
-            {err ? <p className="error">Something went wrong, please try again later.</p> : ""}
+            {err ? <p className="error">{errMsg}. Please try again!</p> : ""}
         </div>
     )
 }

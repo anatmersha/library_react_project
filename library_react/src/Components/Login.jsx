@@ -7,6 +7,7 @@ const Login = ({setAuth}) => {
     const [password, setPassword] = useState("");
     const [isLoading, setIsLoading] = useState(false);
     const [err, setErr] = useState(false);
+    const [errMsg, setErrMsg] = useState("");
     const [field, setField] = useState(false);
 
     function getUser() {
@@ -28,6 +29,7 @@ const Login = ({setAuth}) => {
                 console.log(error);
                 setIsLoading(false)
                 setErr(true);
+                setErrMsg(error.response.data.error.message)
             });
     }
 
@@ -39,7 +41,7 @@ const Login = ({setAuth}) => {
             <form onSubmit={(e)=> {
                 e.preventDefault();
                 if(email !== "" &&
-                password !== ""){
+                password !== "" && errMsg === ""){
                     getUser();
                 }else{
                     setField(true);
@@ -52,7 +54,7 @@ const Login = ({setAuth}) => {
             </form>
             
             {isLoading ? <div style={{width: "50px", height: "50px", marginLeft: "220px", marginTop: "15px"}} className={Styles.spinner}></div> : ""} 
-            {err ? <p style={{color: "red"}}>Error</p> : ""}          
+            {err ? <p className="error">{errMsg}</p> : ""}
 
         </div>
     )

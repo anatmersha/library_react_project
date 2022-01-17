@@ -66,15 +66,8 @@ const BooksList = ({auth,setCurrent}) => {
                 <p style={{fontSize: "22px", fontWeight: "bold"}}>{title}</p>        
                 <p><i>Wrriten by <b>{author}</b></i></p>
 
-                <p className="description" style={{WebkitLineClamp: showFlag ? "initial" : "4", fontSize: "20px"}}>{description}</p>                 
-                <button className="seeMoreOrLess"
-                    onClick={()=> {
-                        {showFlag === false ? setShowFlag(true) : setShowFlag(false)}
-                    }}> {showFlag === false ? <i title="see more" class="fa fa-plus"></i> 
-                                            : <i title="see less" class="fa fa-minus"></i>}
-                </button>     
+                <p className="description">{description}</p>                     
         
-
                 <button className="pushToReadings" onClick={()=> {
                     const temp = userData;
                     const readingIndex = temp[0].readingsList.findIndex((item) => item.id === book.id);

@@ -66,7 +66,7 @@ const userName = userData[5];
         </li>
         <li>
         <span className="userChip" style={{float:"right", backgroundColor: "#f1f1f1", borderRadius: "25px", height: "50px", lineHeight: "50px", marginTop: "-10px"}}>
-        <img style={{float: "left", width: "50px", height: "50px", borderRadius: "50%"}} src={AvatarMaker} alt="Person" width="96" height="96"/>{userName}</span>
+        <img style={{float: "left", width: "50px", height: "50px", borderRadius: "50%"}} src={AvatarMaker} alt="Person" width="96" height="96"/>Hello {userName}</span>
         </li>
         </div>
         <hr></hr>     

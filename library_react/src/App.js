@@ -15,11 +15,12 @@ import CompletedList from "./Pages/CompletedList";
 import { useEffect, useState } from 'react';
 
 function App() {
+    // const [auth, setAuth] = useState("aaqq@gmail.com");
     const [auth, setAuth] = useState(null);
     const [current, setCurrent] = useState("");
     const [popUp, setPopUp] = useState(false);
 
-    if(popUp===true){
+  if(popUp===true){
       setTimeout(function logOutUser(){
           setAuth(null);
   }, 20000);
@@ -28,7 +29,6 @@ function App() {
 useEffect(()=> {
   if(auth) isActive();
 }, [auth])
-
 
 function isActive() {
   let secondsLastActive = 0;
@@ -40,7 +40,6 @@ function isActive() {
 // !If it's been 20min since actice -logout!
   const active = setInterval(()=> {
     secondsLastActive++;
-    console.log(secondsLastActive);
 
     if(secondsLastActive >= secondsMaxUnActive){
       secondsLastActive = 0;
@@ -63,8 +62,6 @@ function isActive() {
       {auth ? 
           <Navbar setAuth={setAuth} auth={auth} setPopUp={setPopUp} popUp={popUp}/>
       : ""} 
-
-
     <Routes>
         {!auth ? <Route path="/" element={<Home setAuth={setAuth}/>}/> : ""}
         

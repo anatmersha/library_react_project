@@ -14,7 +14,7 @@ return(
         <textarea style={{height: "14vh", marginBottom: "-16px"}} readOnly={readOnly} placeholder="Leave a note.." rows="5" cols="100" 
             onChange={(e)=> setNote(e.target.value)}></textarea><br/>
 
-            <button style={{width: "25vw", fontSize: "17px", backgroundColor: "antiquewhite", padding: "10px", margin: "15px", marginLeft: "0"}} onClick={()=> {
+            <button style={{width: "5vw", fontSize: "17px", backgroundColor: "#bfcbc3", padding: "10px", margin: "15px", borderRadius: "5px"}} onClick={()=> {
             const temp = userData;
             const currentNote = temp[2].notesList;    
             const noteIndex = currentNote.findIndex((book) => book.bookID === bookID);
@@ -30,7 +30,7 @@ return(
             setReadOnly(true);
             }}>Save</button>
 
-            <button style={{width: "25vw", fontSize: "17px", backgroundColor: "antiquewhite", padding: "10px", margin: "15px"}} onClick={()=> {
+            <button style={{width: "5vw", fontSize: "17px", backgroundColor: "#bfcbc3", padding: "10px", borderRadius: "5px"}} onClick={()=> {
                 setReadOnly(false);
             }}>Edit</button>
         </>

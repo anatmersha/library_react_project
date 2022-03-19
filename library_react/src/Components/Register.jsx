@@ -35,7 +35,7 @@ import "./Register.css";
             setCompleted(true);        
         })
         .catch((error)=> {
-            console.log(error.response.data.error.message);
+            console.log(error.response.data.error?.message);
             setIsLoading(false)
             setErr(true);
             setErrMsg(error.response.data.error.message)

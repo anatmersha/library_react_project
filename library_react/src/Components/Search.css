@@ -2,4 +2,7 @@
     font-size: 22px;
     background-color: transparent;
     border: none;
+    position: absolute;
+    top: 10.7vh;
+    right: 22.2vw;
 }

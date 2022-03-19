@@ -17,14 +17,14 @@
     background-color: rgb(206, 206, 170);
 }
 .registerMsg, .fieldMissingMsg{
-    width: 376px; 
-    margin-left: 76px; 
-    background-color: red; 
-    height: 43px; 
-    line-height: 2; 
-    margin-bottom: 5px; 
-    color: white; 
-    font-size: 20px; 
+    width: 20.3vw;
+    margin-left: 93px;
+    background-color: red;
+    height: 43px;
+    line-height: 2;
+    margin-bottom: 5px;
+    color: white;
+    font-size: 20px;
     font-weight: bold;
 }
 .error{

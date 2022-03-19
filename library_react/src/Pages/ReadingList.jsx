@@ -9,20 +9,21 @@ import "./ReadingList.css";
         
         return(
             <div className="readinglist">
-        <h1>Reading List</h1>
 
         <div className="readingBooks">
-        {readingBooks.map(item=> {
+        {readingBooks?.length !== 0 ? readingBooks.map(item=> {
             const image = item.volumeInfo.imageLinks;
             const images= [];
             for (const property in image) images.push(image[property])
 
             return (
                 <div className="readBookCard" key={item.id}>
-                <img style={{height: "400px", width: "300px"}} title="Image wasn't found" src={images[1] === undefined ? "https://media3.giphy.com/media/3zhxq2ttgN6rEw8SDx/giphy.gif?cid=ecf05e47f8u2yjibc628qrn6gy6pufm8g9xktf1lyfv9ahwd&rid=giphy.gif&ct=g" : images[1]} alt={`Sorry img wasn't found`}/>  
+                <img style={{height: "45vh", width: "15vw", left: "0", position:"absolute", bottom: "10px"}} title="Image wasn't found" src={images[1] === undefined ? "https://media3.giphy.com/media/3zhxq2ttgN6rEw8SDx/giphy.gif?cid=ecf05e47f8u2yjibc628qrn6gy6pufm8g9xktf1lyfv9ahwd&rid=giphy.gif&ct=g" : images[1]} alt={`Sorry img wasn't found`}/>  
+                <div className="bookCardDetails">
+
                     <p style={{fontSize: "22px", fontWeight: "bold"}}>{item.volumeInfo.title}</p>
                     <p><i>Wrriten by <b>{item.volumeInfo.authors}</b></i></p>
-                    <p style={{fontSize: "20px"}}>{item.volumeInfo.description}</p>
+                    <p className="description">{item.volumeInfo.description}</p>
                     
                     <button className="pushToCompleted" onClick={()=> {
                         const temp = userData;
@@ -65,7 +66,8 @@ import "./ReadingList.css";
                     }}><i title="Remove this book" class="fa fa-trash"></i></button>
 
                 </div>                          
-        )})} 
+                </div>                          
+        )}): <h1 style={{marginRight: "38vw", marginTop: "-50vh"}}>Sorry no books chosen...</h1>} 
             </div>
         </div>
     )

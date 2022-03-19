@@ -1,4 +1,5 @@
 import { useState } from "react";
+// import { Navigate } from 'react-router-dom';
 import axios from "axios";
 import Styles from "./Spinner.module.css";
 
@@ -24,6 +25,7 @@ const Login = ({setAuth}) => {
             .then(function (response) {
                 setAuth(response.data.email)
                 setIsLoading(false)
+                // return <Navigate to="/"/>
             })
             .catch(function (error) {
                 console.log(error);
@@ -40,6 +42,7 @@ const Login = ({setAuth}) => {
 
             <form onSubmit={(e)=> {
                 e.preventDefault();
+                
                 if(email !== "" &&
                 password !== "" && errMsg === ""){
                     getUser();

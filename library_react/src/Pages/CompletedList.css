@@ -1,19 +1,25 @@
 .completedList{
-    background-color: #d0d8c5;
-    height: 60vh;
-    margin-top: -2.5vh;
+    display: flex;
+    flex-direction: column;
+    width: 85%;
+    margin-left: 15%;
+    height: 100%;
 }
 .completedBooks{
-    margin-top: 0;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    align-items: center;
+    align-items: flex-end;
+    flex-direction: column;
+    background-color: rgb(208, 216, 197);
+    height: 100vh;
 }
 .completedBookCard{
-    width: 42%;
-    height: 130vh;
-    margin: 3%;
+    position: relative;
+    width: 85%;
+    left: -5vw;
+    top: 10vh;    
+    margin-bottom: 15vh;
 }
 .deleteCompleted{
     font-size: 22px;

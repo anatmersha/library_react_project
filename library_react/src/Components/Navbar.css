@@ -1,58 +1,50 @@
 .mainNavbar{
-    display: inline-flex;
-    z-index: 99999999;
-
+    display: flex;
+    align-items: center;
+    flex-direction: column;
 }
 .logoHeader{
     font-family: 'Cinzel Decorative';
-    font-size: 55px;
+    font-size: 35px;
+    margin-top: 5vh;
+    margin-bottom: 5vh;
 }
 .logoSubHeader{
     font-family: 'Gayathri';
     font-weight: unset;
     letter-spacing: 3px;
     font-size: 14px;
-}
+} 
 a{
     text-decoration: none;
     color: black;
 }
 .mainNavbar li{
     list-style-type: none;
-    padding: 7px;
-    margin-left: 120px;
-    font-size: 18px;
+    padding: 20px;
+    font-size: 22px;
     line-height: 2;
     font-weight: bold;
 }
-hr{
-    width: 90vw;
-    margin-left: 90px;
-} 
 .popUP{
-    position: fixed;
-    width: 55vw;
-    height: 55vh;
-    top: 200px;
-    left: 432px;
+    width: 50%;
+    height: 70vh;
     background: rgb(252, 219, 224);
-    border-radius: 10%;
-}
+    position: fixed;
+    z-index: 99;
+    top: 15vh;
+    left: 35vw;
+} 
 .yesBtn, .noBtn{
     font-size: 25px;
-    font-weight: bold;
-    padding: 15px;
-    background-color: aliceblue;
-    margin: 25px;
-    width: 170px
 }
 .yesBtn:hover, .noBtn:hover {
     background-color: red;
     color: white;
-}
+} 
 .logoutBtn{
     font-family: "Gayathri";
-    font-size: 18px;
+    font-size: 22px;
     background-color: transparent;
     border: none;
     font-weight: bold;

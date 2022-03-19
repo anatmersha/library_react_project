@@ -15,7 +15,6 @@ import CompletedList from "./Pages/CompletedList";
 import { useEffect, useState } from 'react';
 
 function App() {
-    // const [auth, setAuth] = useState("aaqq@gmail.com");
     const [auth, setAuth] = useState(null);
     const [current, setCurrent] = useState("");
     const [popUp, setPopUp] = useState(false);

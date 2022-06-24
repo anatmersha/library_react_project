@@ -65,7 +65,7 @@ import "./CompletedList.css";
                             }}><i title="Remove this book" class="fa fa-trash"></i></button>
                         </div>                          
                     </div>                          
-                )}): <h1 style={{marginRight: "32vw", marginTop: "-50vh"}}>Sorry no books had completed...</h1>}  
+                )}): <h1 style={{marginRight: "32vw", marginTop: "-50vh"}}>Sorry no completed books...</h1>}  
 
             </div>
         </div>

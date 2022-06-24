@@ -10,10 +10,9 @@ const Login = ({setAuth}) => {
     const [err, setErr] = useState(false);
     const [errMsg, setErrMsg] = useState("");
     const [field, setField] = useState(false);
-
+    
     function getUser() {
-        const API_KEY = "AIzaSyD24t8rsYHvjCoJ9t4mI6IO4tcFzrWM7Vs";
-        const url = `https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=${API_KEY}`;
+        const url = `https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=${process.env.FIREBASE_API_KEY}`;
     
         setIsLoading(true);
 

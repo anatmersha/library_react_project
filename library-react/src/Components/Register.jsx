@@ -16,8 +16,7 @@ import "./Register.css";
     const [completed, setCompleted] = useState(false);
 
     function setUser() {
-        const API_KEY = "AIzaSyD24t8rsYHvjCoJ9t4mI6IO4tcFzrWM7Vs";
-        const url = `https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=${API_KEY}`;
+        const url = `https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=${process.env.FIREBASE_API_KEY}`;
 
         setIsLoading(true);
 

@@ -15,7 +15,7 @@ const BooksList = ({auth,setCurrent}) => {
 
     const userData = JSON.parse(localStorage.getItem(auth));
     
-    useEffect(getData, []);
+    useEffect(getData, [searched]);
     
     function getData() {
         setIsLoading(true)
@@ -31,7 +31,7 @@ const BooksList = ({auth,setCurrent}) => {
               setErr(true)
               setIsLoading(false)
             });  
-        }
+    }
 
     return (
         <div className="booksList">

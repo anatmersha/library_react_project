@@ -17,7 +17,7 @@ import "./CompletedList.css";
                 {completedBooks?.length !== 0 ? completedBooks.map(item=> {
                 const readIndex = userData[3].readingTime.findIndex((book) => book.id === item.id);
                 const noteIndex = noteList.findIndex((book) => book.bookID === item.id);
-                const rateIndex = rateList.findIndex((book) => book.bookID === item.id);
+                // const rateIndex = rateList.findIndex((book) => book.bookID === item.id);
 
                 const image = item.volumeInfo.imageLinks; 
                 const images= [];

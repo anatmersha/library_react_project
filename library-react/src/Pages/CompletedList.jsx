@@ -7,7 +7,7 @@ import "./CompletedList.css";
         const [completedBooks, setCompletedBooks] = useState(userData[1].completedList)
         const readingCount = userData[3].readingTime;
         const noteList = userData[2].notesList;
-        const rateList = userData[4].ratingList;
+        // const rateList = userData[4].ratingList;
         
         return (
             <div className="completedList">

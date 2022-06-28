@@ -11,7 +11,7 @@ const BooksList = ({auth,setCurrent}) => {
     const [isLoading, setIsLoading] = useState(false);
     const [err, setErr] = useState(false);
     const [searched, setSearched] = useState("fantasy");
-    const [startDate, setStartDate] = useState(moment().format('MM/DD/YYYY, hh:mm a'));
+    const [startDate, setStartDate] = useState("");
 
     const userData = JSON.parse(localStorage.getItem(auth));
     
@@ -25,6 +25,7 @@ const BooksList = ({auth,setCurrent}) => {
               console.log(response.data.items);
               setBooks(response.data.items)
               setIsLoading(false)
+              setStartDate(moment().format('MM/DD/YYYY, hh:mm a'))
             })
           .catch((error)=> {
               console.error(error.response);

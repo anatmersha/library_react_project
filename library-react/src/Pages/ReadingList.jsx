@@ -3,7 +3,7 @@ import moment from 'moment';
 import "./ReadingList.css";
 
     const ReadingList = ({auth}) => {
-        const [finishedDate, setFinishedDate] = useState(moment().format('MM/DD/YYYY, hh:mm a'));
+        const [finishedDate, setFinishedDate] = useState("");
         const userData = JSON.parse(localStorage.getItem(auth));
         const [readingBooks, setReadingBooks] = useState(userData[0].readingsList)
         
@@ -12,6 +12,7 @@ import "./ReadingList.css";
 
         <div className="readingBooks">
         {readingBooks?.length !== 0 ? readingBooks.map(item=> {
+            setFinishedDate(moment().format('MM/DD/YYYY, hh:mm a'))
             const image = item.volumeInfo.imageLinks;
             const images= [];
             for (const property in image) images.push(image[property])
